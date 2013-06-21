@@ -8,6 +8,8 @@
 # http://www.directdefense.com/
 # Providing Strategic and Proactive Security Services
 # 
+# Public Release Version 1.0 - May 2013
+#
 # Script to enumerate derogatory domain names for a given domain
 #
 # The following script was written to automate the process of
@@ -46,18 +48,7 @@
 # End result will be a html report (<domain_derogdom_rpt.html>) and png images within a
 # <domain>_derog_images directory. 
 #
-#	This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#  
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>
+#	Enjoy and use at your own risk:-)
 #
 #
 ####################################################
@@ -69,7 +60,7 @@ use IO::File;
 use Getopt::Long qw(:config no_ignore_case bundling);
 
 ####################################################
-# User Snapito API Key - Must be assigned for screens
+# User Snapito API Key - Must be assigned to screens
 ####################################################
 
 $apikey = "";
@@ -156,12 +147,8 @@ sub close_logfile {
 	print RPT "<p><h2><a id=\"founddoms\">1. Found Derogatory Domains</a></h2></p>\n";
 	print RPT "<table border=\"1\">\n";
 		print RPT "<tr>\n<th>Domain</th>\n<th>IP Address</th>\n</tr>\n";
-	foreach $derognames (@derogdomhtml) {
-		($fval0,$fval1,$fval2,$fval3,$fval4) = split(/\s+/,$derognames);
-		chomp($fval0);
-		chomp($fval4);
-		chop($fval0);
-		print RPT "<tr>\n<td>$fval0</td>\n<td>$fval4</td>\n</tr>\n";
+	foreach $resdom (keys %resderogdom) {
+		print RPT "<tr>\n<td>$resdom</td>\n<td>$resderogdom{$resdom}</td>\n</tr>\n";
 	}
 	print RPT "</table>\n";
 	
@@ -320,6 +307,13 @@ sub search_derogdoms {
         		if ($rr->type eq "A"){
        		 		print $rr->string, "\n";
        		 		@derogdomhtml = $rr->string;
+				foreach $derognames (@derogdomhtml) {
+					($fval0,$fval1,$fval2,$fval3,$fval4) = split(/\s+/,$derognames);
+					chomp($fval0);
+                			chomp($fval4);
+                			chop($fval0);
+					$resderogdom{$fval0} = $fval4;
+					}
 				@derogdom = split('\s+',$rr->string);
        				push @results,$derogdom[0]; #push the derogatory domian into an array
           			}
