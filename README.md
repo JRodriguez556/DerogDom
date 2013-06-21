@@ -31,8 +31,9 @@ CONSIDERATIONS
 	IO::File<br>
 	Getopt::Long<br>
 
-Finally, being a perl script, the script should run on almost any 
-platform. The script was though written and tested on Ubuntu 12.x.
+Finally, being a perl script, the script should run on almost any platform. However, <br>
+since the other components of this script require specific libraries, we have only tested<br>
+it on Ubuntu Linux 12.x at this time.
 
 USAGE
 =====
