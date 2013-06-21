@@ -1,6 +1,6 @@
-DerogDom.pl
-Kirk Greene <kgreene@directdefense.com>
-http://www.DirectDefense.com
+DerogDom.pl<br>
+Kirk Greene <kgreene@directdefense.com><br>
+http://www.DirectDefense.com<br>
 
 INTRODUCTION
 ============
@@ -22,14 +22,14 @@ and png images within a <domain>_derog_images directory.
 
 CONSIDERATIONS
 ==============
-
-1. You need to supply your own Snapito API key 	http://snapito.com/paid-api.jsp.
+<OL>
+<li>You need to supply your own Snapito API key http://snapito.com/paid-api.jsp.<br>
 	Edit the script and place the key inbetween the quotes.
 
-2. The following perl modules are used:
-	Net::DNS
-	IO::File
-	Getopt::Long
+<li>The following perl modules are used:<br>
+	Net::DNS<br>
+	IO::File<br>
+	Getopt::Long<br>
 
 Finally, being a perl script, the script should run on almost any 
 platform. The script was though written and tested on Ubuntu 12.x.
@@ -66,9 +66,9 @@ domains that are used, the longer the script will take to complete.
 COPYRIGHT
 =========
 
-DerogDom.pl
-Created by Kirk Greene
-Copyright (C) 2013 DirectDefense, Inc.
+DerogDom.pl<br>
+Created by Kirk Greene<br>
+Copyright (C) 2013 DirectDefense, Inc.<br>
  
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
