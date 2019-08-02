@@ -84,15 +84,7 @@ sub assign_opts {
 
 	$domain = $opt_d;
 	($domft, $dombk) = split /\./,$domain; # need to break it up for now
-
-	if (!defined @opt_t) {
-		@tld = ("com","org","net","us");
-	} elsif ($opt_t[0] eq "all") {
-		@tld = ("aero","asia","biz","cat","com","coop","info","int","jobs","mobi","museum","name","net","org","post","pro","tel","travel","us","xxx");
-	} else {
-		@tld = split(/,/,join(',',@opt_t));
-	}
-
+	@tld = ("com","org","net","us");
 	$derogfile = $opt_i;
 
 }
