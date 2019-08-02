@@ -250,7 +250,7 @@ sub create_derogdoms {
 		@whois_info = `whois $found_derogdoms`;
 		$chk = "0";
 		foreach $who_val (@whois_info) {
-			sleep 5;
+			sleep 2;
 			if ( ($who_val =~ m/^Not found:/) || ($who_val =~ m/^No match for/) || ($who_val =~ m/^NOT FOUND/i) ) {
 				print "No Whois information found for $found_derogdoms\n";
 				$whoishtml{$found_derogdoms} = $who_val;
