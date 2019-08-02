@@ -300,6 +300,7 @@ sub search_derogdoms {
        		 		print $rr->string, "\n";
        		 		@derogdomhtml = $rr->string;
 				foreach $derognames (@derogdomhtml) {
+					sleep 5
 					($fval0,$fval1,$fval2,$fval3,$fval4) = split(/\s+/,$derognames);
 					chomp($fval0);
                 			chomp($fval4);
