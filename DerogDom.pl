@@ -291,6 +291,7 @@ sub search_derogdoms {
 	foreach $domval (@derogdoms) {
 
 	undef(@derogdom);
+	sleep 5;
 	$res = Net::DNS::Resolver->new;
 	$res->tcp_timeout(7);
 	$query = $res->search($domval);
@@ -300,7 +301,6 @@ sub search_derogdoms {
        		 		print $rr->string, "\n";
        		 		@derogdomhtml = $rr->string;
 				foreach $derognames (@derogdomhtml) {
-					sleep 5;
 					($fval0,$fval1,$fval2,$fval3,$fval4) = split(/\s+/,$derognames);
 					chomp($fval0);
                 			chomp($fval4);
